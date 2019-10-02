@@ -1,6 +1,6 @@
 
 # Recast.AI Conversation Manager
-> A user-friendly way to manage your recast.ai bots :robot: !
+> A user-friendly way to manage your recast.ai chatbots :robot: !
 <p align="center">
   <img src="https://media.giphy.com/media/idpT1kuCaGz1o0b1DF/giphy.gif" width="400"/> 
 </p>
