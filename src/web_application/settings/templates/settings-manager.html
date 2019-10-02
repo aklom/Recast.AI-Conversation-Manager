@@ -1,0 +1,75 @@
+{% extends "mybase.html" %}
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/settings-manager.css') }}">
+  
+{% endblock %}
+{
+{% block page_title %} Create group {% endblock %}
+
+{% block page_content %}
+		
+
+	<div class="tab-title">
+		Settings
+	</div>
+
+	<div class="tab-content">
+		<div class="top">
+		<div >
+			<div id="pwd-card" >
+
+				<div class="pwd-label"> Change password </div>
+				<div class="form-group">
+					<form method="POST" action='/saveprofilechanges'>
+						<span class="name-label"> Old password:  </span> 
+			     			<input type="password" name="name" class="form-control" id="pwd1" required>
+			     		<span class="name-label"> New password:   </span> 
+			     			<input type="password" name="name" class="form-control" id="pwd2" required>
+			     		<span class="name-label"> Confirm password:   </span> 
+			     			<input type="password" name="name" class="form-control" id="pwd3" required>
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+			            <input type="submit" id="save" class="btn" value="Save changes">
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+
+		
+			
+			
+   	</div>
+   	
+   
+	<script type="text/javascript">
+  	  	(function fct() {
+
+			var linkMenu = document.getElementById("asettings"); 
+			linkMenu.classList.remove("other-links"); 
+			linkMenu.classList.add("menu-active"); 
+
+  	  	})();
+  	  </script>
+   
+	<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+	  <script>
+
+	    // Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
+
+	    var pusher = new Pusher('9b465c99e2e7e0b46bcb', {
+	      cluster: 'eu',
+	      encrypted: true
+	    });
+
+	    var channel = pusher.subscribe('index-channel');
+	    channel.bind('conversation-updated', function(data) {
+	      location.reload(window.location.href + "#conversations_list" )
+	    });
+	  </script>
+
+
+{% endblock %}

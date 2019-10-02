@@ -1,0 +1,105 @@
+body {
+	background-size: contain no-repeat;
+    width: 100vw ;
+    height: 100vh;
+}
+
+#left {
+	height: 100vh;
+    background: #383C48;
+    z-index: 2;
+	box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+}
+
+#right {
+	height: 100vh;
+	background-color: #f1f1f1;
+}
+
+#logo {
+	margin-top: 32vh;
+	width: 100%;
+}
+
+.group-form {
+	width: 67vw;
+	height: 86vh; 
+
+	margin-top: 6vh;
+	margin-left: 3vw;
+
+	padding-top: 2vh;
+
+	background-color: white;
+	box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+}
+.name-label, .pwd-label, .pwd2-label {
+	padding-top: 5vh;
+	font-family: 'Raleway', sans-serif;
+  	font-size: 14px;
+  	color: grey;
+}
+
+.fname-label, .lname-label {
+	padding-top: 10vh;
+	font-family: 'Raleway', sans-serif;
+  	font-size: 14px;
+  	color: grey;
+  	margin-left: -1vw;
+}
+
+#username, #password, #password2, #bot-name, #req-token, #dev-token{
+	width: 29vw; 
+	margin-bottom: 4vh;
+	height: 7vh;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+
+
+}
+
+#first-name, #last-name {
+	width: 14vw; 
+	margin-bottom: 4vh;
+	height: 7vh;
+	font-family: 'Raleway', sans-serif;
+	font-size: 18px;
+	margin-left: -1vw;
+
+}
+
+#signin {
+	color: #3BCC99; 
+	font-family: 'Raleway', sans-serif;
+	font-size: 34px;
+	margin-top: 2vh;
+	margin-bottom: 5vh;
+	margin-left: -2vw;
+}
+
+
+
+#save-button {
+	background-color: #ffbd3d; 
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+	color: white;
+	margin-top: 12vh;
+	height: 7vh;
+	width: 7vw;
+	margin-left: -3.5vw;
+
+}
+
+.left-column {
+	border-right: 1px solid #f1f1f1;
+ 	height: 57vh;
+ 	padding-top: 3vh;
+ 	padding-left: 2.5vw;
+}
+
+
+.right-column {
+	padding-top: 9vh;
+ 	padding-left: 2vw;
+}

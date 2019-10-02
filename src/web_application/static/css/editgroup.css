@@ -1,0 +1,117 @@
+
+.tab-title {
+  text-decoration: none;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 5vh;
+  font-weight: lighter;
+  color: #71697a;
+  font-family: 'Raleway', sans-serif;
+}
+
+.circle2 {
+  margin-top: 2vh;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  font-size: 60px;
+  padding-top: 23px; 
+  color: white;
+  text-align: center;
+  background-color: rgba(100,100,100, 0.3);
+}
+
+.circle2 span {
+  font-size: 60px;
+
+}
+
+#name, #description {
+  width: 30vw;
+  margin-top: 2vh;
+}
+
+.name-des {
+  padding: 3vw;
+}
+
+.name-label, .description-label {
+  padding-top: 4vh;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: grey;
+  margin-bottom: 3vh;
+}
+
+
+.participants {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-right: 2vw;
+  width: 30vw;
+  margin-right: 2vw;
+  margin-top: 2vh;
+}
+
+
+.line {
+  display: inline-block;
+  width: 28vw;
+  background-color: white; 
+  height: 7vh;
+  margin-bottom: 1vh;
+  padding: 1vw;
+
+}
+
+input[type="checkbox"]{
+  width: 3vh; /*Desired width*/
+  height: 3vh; /*Desired height*/
+  cursor: pointer;
+  float: left;
+  margin-top: 2vh;
+}
+
+.username {
+  float: center; 
+  font-size: 16px;
+  margin-left: 3vw;
+  font-family: 'Raleway', sans-serif;
+  color: #444;
+}
+
+.channel {
+  float: right;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  margin-top: 2vh;
+  color: #444;
+  font-style: italic;
+}
+  
+.tab-content{
+  background-color: white; 
+  height: 67vh;
+  width: 70vw;
+  margin-left: 7vw;
+  margin-top: 6vh;
+  box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+  
+}
+
+
+.participants-des {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: grey;
+  margin-top: 5vh;
+}
+
+#save {
+  float: center;
+ background-color: #3BCC99;
+ font-size: 18px; 
+  color: white;
+  margin-top: 4vh;
+
+}

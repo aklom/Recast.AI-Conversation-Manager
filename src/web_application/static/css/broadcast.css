@@ -1,0 +1,109 @@
+
+
+.tab-title {
+  text-decoration: none;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 7vh;
+  font-weight: lighter;
+  color: #71697a;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+
+.participants-des {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: grey;
+  margin-top: 5vh;
+}
+
+#send {
+  float: center;
+ background-color: #3BCC99;
+ font-size: 18px; 
+  color: white;
+  margin-top: 9vh;
+
+}
+
+.box {
+  border: solid 5px;
+  border-color: #ffbd3d;
+  background-color: white; 
+  width: 10vw; 
+  height: 12vh;
+  box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+  margin-top: 5vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  padding-top: 4vh;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+  color: grey;
+  text-align: center;
+}
+
+.create {
+  border-color: #3BCC99;
+  text-align: center;
+}
+.tab-content {
+  padding: 4vw;
+}
+
+.edit { 
+  z-index: 3;
+  margin-top: 1.5vh;
+  margin-left: 6.5vw;
+  color: grey;
+  background-color: transparent;
+}
+
+.edit:hover {
+  color: #3BCC99;
+}
+
+.delete:hover {
+  color: #3BCC99;
+}
+
+.delete {
+  float: left;
+  z-index: 3;
+  color: grey;
+  margin-top: 2.5vh;
+  margin-left: -7.5vw;
+  margin-right: 3vw;
+
+}
+
+input[type="checkbox"]{
+  width: 3vh; /*Desired width*/
+  height: 3vh; /*Desired height*/
+  cursor: pointer;
+  float: left;
+  background: white;
+  margin-top: 0vh;
+}
+
+#name, #message {
+  width: 30vw;
+  margin-top: 2vh;
+}
+
+.name-label, .message-label {
+  padding-top: 5vh;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: grey;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+}
+
+.selectgroups {
+  margin-top: 3vh;
+  margin-left: 9vw;
+  margin-right: 9vw;
+}

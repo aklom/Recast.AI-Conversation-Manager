@@ -1,0 +1,108 @@
+body {
+  overflow-x: hidden;
+}
+
+.sidenav {
+    height: 100%;
+    width: 15vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    border-right: thin solid #aaa;
+    background: #383C48;
+}
+
+.sidenav a {
+    padding-top: 2vh;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f1f1f1;
+    text-align: center; 
+    display: block;
+    height: 8vh;
+    margin-top: 2vh;
+    font-family: 'Raleway', sans-serif;
+}
+.other-links {
+  
+    background-color: rgba(100,100,100, 0.3);
+}
+.sidenav a span {
+  float: left;
+  margin-left: 2vw;
+}
+
+.sidenav a:hover {
+    background-color: #3bcc99;
+}
+
+.menu-active {
+  background: #3bcc99;
+  color: red;
+  z-index: 3;
+}
+
+body {
+    background-size: contain no-repeat;
+    width: 100vw ;
+    height: 100vh;
+    background: #f1f1f1;
+}
+.main {
+    margin-left: 15vw; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    height: 100%;
+    width: 85vw;
+}
+
+
+
+#logo {
+  width: 16.5vw;
+  margin-left: -1vw;
+  margin-bottom: -2vh;
+  margin-top: 3vh;
+
+}
+
+.logout {
+    background-color: #ffbd3d; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer;
+    margin-top: 13vh;
+}
+
+
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+

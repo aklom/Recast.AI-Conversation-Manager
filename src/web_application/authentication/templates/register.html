@@ -1,0 +1,76 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/register.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="{{ url_for('.static', filename='logo.png') }}">
+
+{% endblock %}
+{% block title %} Recast.AI Conversation Manager {% endblock %}
+
+{% block content %}
+ 
+
+<div class="tab-content">
+  <div class="col-sm-3" id="left">
+    <img id="logo" src="{{ url_for('.static', filename='logo2.png') }}" align="center">
+  </div>
+  <div class="col-sm-9" style="" id="right">
+  <form method="POST" action="/signup">
+    <div class="group-form" >
+      <h4 align="center" id="signin"> Create an account </h4>
+
+      <div class="left-column col-sm-6">
+        
+      <div class="names">
+        
+        <div class="col-sm-6">
+          <span class="fname-label"> First name: </span> 
+              <input type="text" name="first-name" class="form-control" id="first-name" value="{{ name }}" required>
+        </div>
+
+        <div class="col-sm-6">
+          <span class="lname-label"> Last name: </span> 
+              <input type="text" name="last-name" class="form-control" id="last-name" required>
+        </div>
+
+      </div>
+      <span class="name-label"> Recast.ai Username: </span> 
+            <input type="text" name="username" class="form-control" id="username"  required>
+
+      <span class="pwd-label"> Password: </span> 
+            <input type="password" name="password" class="form-control" id="password"  required>
+
+      <span class="pwd2-label"> Confirm password: </span>
+            <input type="password" name="password2" class="form-control" id="password2"  required>
+      </div>
+
+      <div class="right-column col-sm-6">
+        <span class="name-label"> Bot name: </span> 
+            <input type="text" name="bot-name" class="form-control" id="bot-name"  required>
+        <span class="name-label"> Request access token: </span> 
+            <input type="text" name="req-token" class="form-control" id="req-token"  required>
+        <span class="name-label"> Developer access token: </span> 
+            <input type="text" name="dev-token" class="form-control" id="dev-token"  required>
+
+        
+      </div>
+
+
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+      
+      <div >
+        <input type="submit"  id="save-button" class="btn" value="Save">
+        
+      </div>
+  </form>
+      
+
+    </div>
+  </div>
+</div>
+  
+
+ 
+{% endblock %}

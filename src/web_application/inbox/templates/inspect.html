@@ -1,0 +1,110 @@
+{% extends "mybase.html" %}
+
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/inspect.css') }}"> 
+{% endblock %}
+
+
+{% block title %} Inspecting {% endblock %}
+
+
+ <meta http-equiv="refresh" content="5">
+
+{% block page_title %} Inspecting {% endblock %}
+
+{% block page_content %}
+
+	
+	<div class="top-bar"> 
+		
+			<a class="btn back"  href="/inbox"> < Back </a>
+		
+		<form method="POST" action="/setbotmode/{{ conversation_params['id'] }}">
+     		<div class="setbotmode">
+     		  <span id="turnbot"> Set bot mode:  </span> 
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+              {% if conversation_params['botmode'] == "ON" %}
+              <input type="hidden" name="bot_mode" value="OFF"/>
+              <input type="submit" id="botmode" class="btn off" value="OFF">
+              {% else %}
+              <input type="hidden" name="bot_mode" value="ON"/>
+              <input type="submit" id="botmode" class="btn on" value="ON">
+              {% endif %}
+
+		    </div>
+     	 </form>	
+
+
+
+
+    </div>
+    <div class="col-sm-8" >
+    	 <div id="conversation"><br>
+		     	<div id="conversation-content" class="messages"> 
+		     		{% for message in conversation %}
+		     			{% if  message['isBot']  %}
+		     				<div class="message-right" align="right"> <p> {{ message['content'] }}  </p> <div class="circle">Bot</div> </div>
+		     			{% else %}	
+		     				<div class="message-left" align="left">  <div class="circle">User</div> <p> {{ message['content'] }} </p></div> 
+		     			{% endif %}
+		     		{% endfor %}
+		     		
+		     	</div>
+		     	<form method="POST" action="/send_message/{{ conversation_params['id'] }}">
+		     		<div class="form-group">
+				      <textarea class="form-control" rows="3" id="comment" name="message_to_send"></textarea>
+		              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+		              <input type="submit" id="send" class="btn " value="Send">
+				    </div>
+	         	 </form>
+		    </div>
+    </div>
+    <div class="col-sm-4">
+    	<div class="user-card"> 
+    		<div  align="center">  
+    			<div class="circle2"><span class="glyphicon glyphicon-user"></span></div> 
+    			<div class="name"> <b>{{ conversation_params['username'] }} </b></div>
+    			<div class="email"> <span class="glyphicon glyphicon-envelope" style="color: #ffbd3d; padding-right: 1vw;"> </span> {{ conversation_params['email'] }}</div>
+    			<div class="phone"> <span class="glyphicon glyphicon-earphone" style="color: #ffbd3d; padding-right: 1vw;"> </span> {{ conversation_params['phone'] }}</div>
+    	</div>
+    	</div>
+    </div>
+
+
+     <script type="text/javascript">
+  	  	(function fct() {
+
+	  		var objDiv = document.getElementById("conversation-content");
+			objDiv.scrollTop = objDiv.scrollHeight;
+
+			var linkMenu = document.getElementById("ainbox"); 
+			linkMenu.classList.remove("other-links"); 
+			linkMenu.classList.add("menu-active"); 
+
+  	  	})();
+  	  </script>
+
+  	  <script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+	  <script>
+
+	    // Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
+
+	    var pusher = new Pusher('9b465c99e2e7e0b46bcb', {
+	      cluster: 'eu',
+	      encrypted: true
+	    });
+
+	    var channel = pusher.subscribe('inspect-channel');
+	    channel.bind('new-message', function(data) {
+	      location.reload(window.location.href + "#conversation-content" )
+	    });
+
+
+	  </script>
+
+	
+
+{% endblock %}

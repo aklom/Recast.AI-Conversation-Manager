@@ -1,0 +1,85 @@
+{% extends "mybase.html" %}
+
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/broadcast.css') }}">
+{% endblock %}
+
+{% block page_title %} Broadcast {% endblock %}
+
+{% block page_content %}
+
+	
+	<form method="POST" action="/broadcast">
+
+	<div class="tab-title"> Broadcast	</div>
+
+		
+	<div class="tab-content" align="center" >
+
+			<div align="center">
+			<span class="message-label"> Type the message you want to send: </span> <span style="color: #ffbd3d;"> * </span>
+	     			<textarea rows="6" type="text" name="message" class="form-control" id="message" required></textarea> 
+	     	</div>
+	     	<div class="selectgroups">
+			<div class="row">
+					<div class="col-md-3 box create">  
+						<span ><input class="check" type="checkbox" value="all_users" name="groups"> </span>
+						All users 
+					</div> 
+			{% for group in groups %}
+
+			    {% if (loop.index + 1) % 4 == 0 %}
+			        <div class="row">
+			    {% endif %}
+
+			    <div class="col-md-3 box"> 
+			    	<input class="check" type="checkbox" value="{{ group['id'] }}" name="groups"> 
+			    	{{ group['name'] }} 
+			    	<br> 
+
+
+			    </div>
+
+			    {% if ((loop.index + 1) % 4 == 0 or loop.last) %}
+			        </div>
+			    {% endif %}
+
+			{% endfor %}
+
+			</div>
+			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+	            <input type="submit" id="send" class="btn" value="Send">
+			
+   	</div>
+
+   	<script type="text/javascript">
+  	  	(function fct() {
+
+			var linkMenu = document.getElementById("abroadcast"); 
+			linkMenu.classList.remove("other-links"); 
+			linkMenu.classList.add("menu-active"); 
+
+  	  	})();
+  	  </script>
+
+   
+	<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+	  <script>
+
+	    // Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
+
+	    var pusher = new Pusher('9b465c99e2e7e0b46bcb', {
+	      cluster: 'eu',
+	      encrypted: true
+	    });
+
+	    var channel = pusher.subscribe('index-channel');
+	    channel.bind('conversation-updated', function(data) {
+	      location.reload(window.location.href + "#conversations_list" )
+	    });
+	  </script>
+
+{% endblock %}

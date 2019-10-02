@@ -1,0 +1,92 @@
+{% extends "mybase.html" %}
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/creategroup.css') }}">
+  
+{% endblock %}
+{
+{% block page_title %} Create group {% endblock %}
+
+{% block page_content %}
+ 
+	<form method="POST" action="/creategroup">
+	
+	<div class="tab-title">
+		Create a new group
+	</div>
+
+		
+	<div class="tab-content">
+
+	
+     		<div class="form-group" >
+				<div class="col-sm-6 name-des"> 
+	     			<br>
+	     			<span class="name-label"> Name: <span style="color: #ffbd3d;"> * </span> 
+	     			<input type="text" name="name" class="form-control" id="name" required>
+	     			<br>
+	     			<span class="description-label"> Description: </span> <span style="color: #ffbd3d;"> * </span>
+	     			<textarea rows="6" type="text" name="description" class="form-control" id="description" required></textarea> 
+				</div>
+				<div class="col-sm-6 "> 
+					<div class="participants-des"> 
+						Choose the participants you want to add: <span style="color: #ffbd3d;"> * </span> 
+					</div>
+					<div class="participants">
+					{% for conversation in conversations %}
+					<div class="line">
+						<input class="check" type="checkbox" value="{{ conversation['id'] }}" name="conv">
+						<span class="username"> 
+							{{ conversation['username'] }}
+						</span>
+						<span class="channel">
+							{{ conversation['channel'] }}
+						</span>
+					</div>
+					<br>					
+					{% endfor %}
+					</div>
+			     
+				</div>
+		    </div>
+
+
+			
+				
+			
+   	</div>
+   	<div align="center">
+	   	<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+	            <input type="submit" id="save" class="btn" value="Save">
+    </div>
+	</form>
+	<script type="text/javascript">
+  	  	(function fct() {
+
+			var linkMenu = document.getElementById("agroups"); 
+			linkMenu.classList.remove("other-links"); 
+			linkMenu.classList.add("menu-active"); 
+
+  	  	})();
+  	  </script>
+   
+	<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+	  <script>
+
+	    // Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
+
+	    var pusher = new Pusher('9b465c99e2e7e0b46bcb', {
+	      cluster: 'eu',
+	      encrypted: true
+	    });
+
+	    var channel = pusher.subscribe('index-channel');
+	    channel.bind('conversation-updated', function(data) {
+	      location.reload(window.location.href + "#conversations_list" )
+	    });
+	  </script>
+
+
+{% endblock %}

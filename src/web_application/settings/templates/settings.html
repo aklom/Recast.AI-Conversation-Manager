@@ -1,0 +1,170 @@
+{% extends "mybase.html" %}
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/settings.css') }}">
+  
+{% endblock %}
+{
+{% block page_title %} Create group {% endblock %}
+
+{% block page_content %}
+		
+
+	<div class="tab-title">
+		Settings
+	</div>
+
+	<div class="tab-content">
+		<div class="top">
+		<div class="col-sm-4">
+			<div id="pwd-card" >
+
+				<div class="pwd-label"> Change password </div>
+				<div class="form-group">
+					<form method="POST" action='/saveprofilechanges'>
+						<span class="name-label"> Old password:  </span> 
+			     			<input type="password" name="name" class="form-control" id="pwd1" required>
+			     		<span class="name-label"> New password:   </span> 
+			     			<input type="password" name="name" class="form-control" id="pwd2" required>
+			     		<span class="name-label"> Confirm password:   </span> 
+			     			<input type="password" name="name" class="form-control" id="pwd3" required>
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+			            <input type="submit" id="save" class="btn" value="Save changes">
+					</form>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="col-sm-8">
+			
+			<div class="tokens-card">
+				<div class="tokens-label"> Bot settings </div>
+					<form method="POST" action='/savetokenchanges'>
+						<span class="name-label2"> Bot name:  </span> 
+			     			<input type="text" name="name" class="form-control" id="bot" value="{{bot_name}}" required>
+			     			
+						<span class="name-label2"> Request token:  </span> 
+			     			<input type="text" name="reqToken" class="form-control" id="token1" value="{{req_token}}" required>
+			     			
+			     		<span class="name-label2"> Developer token: </span> 
+			     			<input type="text" name="devToken" class="form-control" id="token2" value="{{dev_token}}" required>
+			     			
+			     		
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+			            <input type="submit" id="save-tokens" class="btn" value="Save changes">
+					</form>
+			</div>
+			
+		</div>
+     	</div>
+     	
+		
+		<div class="bottom" >
+			
+
+			<div class="col-sm-7">
+				<div class="list-card">
+					<div class="list-label"> Associated managers </div>
+
+					{% for manager in managers %}
+						<div class="manager-line">
+
+							{{ manager }}
+
+							
+							<button class="btn delete" type="submit"><i class="fa fa-trash"></i> Delete </button>
+
+							<button class="btn edit" type="submit"><i class="glyphicon glyphicon-pencil"></i> Edit </button>
+
+						
+						</div>
+					{% endfor %}
+					 
+				</div>
+					
+			</div>
+
+			<div class="col-sm-5">
+				
+				<div class="add-card">
+					<div class="add-label"> Add a manager </div>
+					<form method="POST" action="/addmanager">
+					<span class="name-label3">Username of the new manager:  </span> 
+			     			<input type="text" name="manager-name" class="form-control" id="name" required>
+			     			
+			     	<span class="name-label3">Password of the new manager:  </span> 
+			     			<input type="text" name="manager-pwd" class="form-control" id="pwd" required>
+			     			
+
+			     	<span class="name-label3">Groups to grant:  </span> 
+
+			     	<div class="participants">
+
+			     		<div class="line">
+							<input class="check" type="checkbox"  name="all">
+							<span class="group"> 
+								All users
+								
+							</span>
+						</div>
+
+			     		{% for group in groups %}
+					
+						<div class="line">
+							<input class="check" type="checkbox" value="{{ group['id'] }}" name="groups">
+							<span class="group"> 
+								{{ group['name'] }}
+								
+							</span>
+							
+						</div>
+						{% endfor %}
+						
+					</div>
+
+					<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+			            <input type="submit" id="save-manager" class="btn" value="Save">
+					</form>
+					
+				</div>
+
+			</div>
+
+		</div>	
+				
+			
+   	</div>
+   	
+   
+	<script type="text/javascript">
+  	  	(function fct() {
+
+			var linkMenu = document.getElementById("asettings"); 
+			linkMenu.classList.remove("other-links"); 
+			linkMenu.classList.add("menu-active"); 
+
+  	  	})();
+  	  </script>
+   
+	<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+	  <script>
+
+	    // Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
+
+	    var pusher = new Pusher('9b465c99e2e7e0b46bcb', {
+	      cluster: 'eu',
+	      encrypted: true
+	    });
+
+	    var channel = pusher.subscribe('index-channel');
+	    channel.bind('conversation-updated', function(data) {
+	      location.reload(window.location.href + "#conversations_list" )
+	    });
+	  </script>
+
+
+{% endblock %}

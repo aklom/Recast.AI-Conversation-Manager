@@ -1,0 +1,205 @@
+.tab-title {
+  text-decoration: none;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 5vh;
+  font-weight: lighter;
+  color: #71697a;
+  font-family: 'Raleway', sans-serif;
+}
+
+  
+.tab-content{
+  height: 89vh;
+  width: 78vw;
+  padding-top: 2vh;
+  margin-left: 3vw;
+  margin-top: 2vh;
+  padding-bottom: 7vh;
+  
+}
+
+
+.name-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: grey;
+  margin-left: 2vw;
+  z-index: 0;
+}
+
+
+
+#save {
+  float: right;
+ background-color: #ffbd3d;
+ font-size: 18px; 
+  color: white;
+  margin-top: 2.5vh;
+  margin-right: 1vw;
+
+}
+
+#pwd1, #pwd2, #pwd3 {
+  width: 20vw;
+  margin-left: 2vw;
+  margin-bottom: 1vh;
+  z-index: 999;
+
+}
+
+.pwd-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 26px;
+  color: #3bcc99;
+  margin-left: 5vw;
+}
+
+#pwd-card {
+  background-color: white; 
+  height: 52vh;
+  box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+  padding-top: 2vh;
+  width: 25vw;
+  margin-left: 25vw;
+  margin-top: 7vh;
+
+
+}
+
+
+.tokens-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 26px;
+  color: #3bcc99;
+  margin-left: 18vw;
+}
+
+#token1, #token2, #bot {
+  margin-left: 2.5vw;
+  width: 40vw;
+  margin-bottom: 1vh;
+}
+
+.name-label2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: grey;
+  margin-left: 2.5vw;
+}
+
+#save-tokens {
+float: right;
+ background-color: #ffbd3d;
+ font-size: 18px; 
+  color: white;
+  margin-top: 2.5vh;
+  margin-right: 1vw;
+
+}
+
+
+.tokens-card {
+  background-color: white; 
+  height: 52vh;
+  margin-left: 3vw;
+  box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+  padding-top: 2vh;
+}
+
+
+
+.add-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 26px;
+  color: #3bcc99;
+  margin-left: 9vw;
+  margin-bottom: 2vh; 
+}
+
+.add-card {
+  background-color: white; 
+  height: auto;
+  margin-left: 0vw;
+  margin-top: 6vh;
+  box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+  padding-top: 3vh;
+  margin-bottom: 4vh;
+  padding-bottom: 3vh;
+}
+
+.list-card {
+  height: auto;
+  background-color: white; 
+  box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+  padding-top: 2vh;
+  margin-top: 6vh;
+  padding-bottom: 3vh;
+}
+
+.list-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 26px;
+  color: #3bcc99;
+  margin-left: 13vw;
+}
+
+
+
+.line {
+  display: inline-block;
+  width: 28vw;
+  background-color: white; 
+  height: 7vh;
+  margin-bottom: 1vh;
+
+}
+
+
+input[type="checkbox"]{
+  width: 3vh; /*Desired width*/
+  height: 3vh; /*Desired height*/
+  cursor: pointer;
+  float: left;
+  margin-top: 2vh;
+}
+
+
+.group {
+  float: center; 
+  font-size: 16px;
+  margin-left: 3vw;
+  font-family: 'Raleway', sans-serif;
+  color: #444;
+}
+
+.participants {
+  overflow-x: hidden;
+  padding-left: 5vw;
+  margin-right: 2vw;
+  margin-top: 2vh;
+}
+
+#name, #pwd {
+  margin-left: 3vw;
+  width: 24vw;
+  margin-bottom: 1vh;
+}
+
+.name-label3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  color: grey;
+  margin-left: 3vw;
+}
+
+
+#save-manager {
+ background-color: #ffbd3d;
+ font-size: 18px; 
+  color: white;
+  margin-right: 1vw;
+  margin-left: 25vw;
+}
+
+

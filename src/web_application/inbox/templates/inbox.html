@@ -1,0 +1,94 @@
+{% extends "mybase.html" %}
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/inbox.css') }}">
+ 
+{% endblock %}
+
+
+{% block page_title %} Inbox {% endblock %}
+
+{% block page_content %}
+
+	<div class="tab-content">
+		
+		<div class="col-sm-8">
+				{% for conversation in conversations %}
+				<div class="user-card">
+					<div class="col-sm-3">
+						<div class="circle2"><span class="glyphicon glyphicon-user"></span></div> 
+					</div>
+					<div class="col-sm-6">
+						<div class="name"> <b> Name: </b>{{ conversation['username'] }} </div>
+						<div class="email"> <b>Email: </b> {{ conversation['email'] }}</div>
+						<div class="phone"> <b> Phone: </b>{{ conversation['phone'] }} </div>
+						<div class="channel"> <b> Channel: </b>{{ conversation['channel'] }} </div>
+					</div>
+					<div class="col-sm-3">
+						<form method="POST" action="/inspect/{{ conversation['id'] }}">
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+						<input type="hidden" name="conv_id" value="{{ conversation['id'] }}"/>
+              			
+   				    	<button class="btn inspect" type="submit"><i class="glyphicon glyphicon-eye-open"></i> Inspect </button>
+   				       </form>
+   				       <form method="POST" action="/delete">
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+						<input type="hidden" name="conversation_id" value="{{ conversation['id'] }}"/>
+   				    	<button class="btn delete" type="submit"><i class="fa fa-trash"></i> Delete </button>
+   				       </form>
+					</div>
+					<div class="date"> Last updated: {{ conversation['date'] }} </div>
+				</div>
+				
+				{% endfor %}
+		</div>
+
+		<div class="col-sm-4">
+			<div class="white_card number_conversations">
+				<div class="number-title"> Total number of conversations:  </div>
+				<div class="number-text"> {{conversations|length}} conversations </div>
+
+				
+			</div>
+			
+			<div class="white_card latest_message">
+				<div class="latest-title"> Latest message received:  </div>
+				<div class="latest-text"> {{ latest_message }} </div>
+
+			</div>
+		</div>
+				
+			
+	</div>
+
+	<script type="text/javascript">
+  	  	(function fct() {
+
+			var linkMenu = document.getElementById("ainbox"); 
+			linkMenu.classList.remove("other-links"); 
+			linkMenu.classList.add("menu-active"); 
+
+  	  	})();
+  	  </script>
+
+	<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+	  <script>
+
+	    // Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
+
+	    var pusher = new Pusher('9b465c99e2e7e0b46bcb', {
+	      cluster: 'eu',
+	      encrypted: true
+	    });
+
+	    var channel = pusher.subscribe('index-channel');
+	    channel.bind('conversation-updated', function(data) {
+	      location.reload(window.location.href + "#conversations_list" )
+	    });
+	  </script>
+
+</div>
+
+{% endblock %}

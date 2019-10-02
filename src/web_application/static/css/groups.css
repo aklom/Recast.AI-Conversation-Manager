@@ -1,0 +1,62 @@
+
+.tab-title {
+  text-decoration: none;
+  text-align: center;
+  font-size: 30px;
+  padding-top: 7vh;
+  font-weight: lighter;
+  color: #71697a;
+  font-family: 'Raleway', sans-serif;
+}
+
+
+.box {
+  background: white; 
+  width: 17vw; 
+  height: 22vh;
+  box-shadow: 1px 3px 10px 3px rgba(156, 160, 172, 0.5);
+  margin-top: 5vh;
+  margin-left: 7vw;
+  padding-top: 7.5vh;
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+  border: solid 0.8vh;
+  color: #444;
+  text-align: center;
+  border-color: #ffbd3d;
+}
+
+.create {
+  color: grey;
+  border: solid 0.8vh;
+  border-color: #3BCC99;
+  text-align: center;
+}
+.tab-content {
+  padding: 4vw;
+}
+
+.edit { 
+  z-index: 3;
+  margin-top: 1.5vh;
+  margin-left: 6.5vw;
+  color: grey;
+  background-color: transparent;
+}
+
+.edit:hover {
+  color: #3BCC99;
+}
+
+.delete:hover {
+  color: #3BCC99;
+}
+
+.delete {
+  float: left;
+  z-index: 3;
+  color: grey;
+  margin-top: 2.5vh;
+  margin-left: -7.5vw;
+  margin-right: 3vw;
+}

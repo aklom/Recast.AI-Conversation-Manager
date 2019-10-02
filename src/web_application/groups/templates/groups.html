@@ -1,0 +1,86 @@
+{% extends "mybase.html" %}
+{% block styles %}
+{{super()}}
+  <link rel="stylesheet" href="{{ url_for('.static', filename='css/groups.css') }}">
+ 
+{% endblock %}
+
+{% block page_title %} Groups {% endblock %}
+
+{% block page_content %}
+
+	<div class="tab-title"> Groups	</div>
+
+		
+	<div class="tab-content" >
+
+			<div class="row">
+				<a href="/creategroup">
+					<div class="col-md-3 box create">  
+						+ Create a new group 
+					</div> </a>
+			{% for group in groups %}
+
+			    {% if (loop.index + 1) % 3 == 0 %}
+			        <div class="row">
+			    {% endif %}
+
+			    <div class="col-md-3 box"> 
+			    	{{ group['name'] }} 
+			    	<br> 
+
+			    	<form method="POST" action="/deletegroup/{{ group['id'] }}">
+			    		<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+						<input type="hidden" name="group_id" value="{{ group['id'] }}"/>
+					 	<button type="submit" style="background-color: transparent; border: 0px transparent; width: 0vw; height: 0vh;"><i type="submit" name="" class="glyphicon glyphicon-trash delete"> </i> </button>
+					</form>
+
+					<form method="POST" action="/editgroup">
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+						<input type="hidden" name="group_id" value="{{ group['id'] }}"/>
+					 	<button type="submit" style="background-color: transparent; border: transparent; width: 0vw; height: 0vh;"><i  name="" class="glyphicon glyphicon-pencil edit"> </i> </button>
+					</form>
+
+
+			    </div>
+
+			    {% if ((loop.index + 1) % 3 == 0 or loop.last) %}
+			        </div>
+			    {% endif %}
+
+			{% endfor %}
+
+			
+			
+   	</div>
+
+   	<script type="text/javascript">
+  	  	(function fct() {
+
+			var linkMenu = document.getElementById("agroups"); 
+			linkMenu.classList.remove("other-links"); 
+			linkMenu.classList.add("menu-active"); 
+
+  	  	})();
+  	  </script>
+   
+	<script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+
+	  <script>
+
+	    // Enable pusher logging - don't include this in production
+	    Pusher.logToConsole = true;
+
+	    var pusher = new Pusher('9b465c99e2e7e0b46bcb', {
+	      cluster: 'eu',
+	      encrypted: true
+	    });
+
+	    var channel = pusher.subscribe('index-channel');
+	    channel.bind('conversation-updated', function(data) {
+	      location.reload(window.location.href + "#conversations_list" )
+	    });
+	  </script>
+
+
+{% endblock %}
