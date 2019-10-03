@@ -15,7 +15,7 @@ The main features it offers are:
 * Brodcast messages to a group of user.
 * Add managers to allow them to take control on some of the chatbot's conversations.
 
-
+Made with :heart: in July 2018.
 
 ## Running locally
 ### Python environment
