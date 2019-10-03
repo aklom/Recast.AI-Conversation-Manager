@@ -1,11 +1,15 @@
 
 # Recast.AI Conversation Manager
-> A user-friendly way to manage your recast.ai chatbots :robot: !
+A user-friendly way to manage your recast.ai chatbots :robot: !
+
 <p align="center">
   <img src="https://media.giphy.com/media/U4402tXqtkOG9gmBpY/giphy.gif" width="400"/> 
 </p>
 
-Recast.AI Conversation Manager is a web platform that complements the features offered by Recast.AI (SAP Conversational AI). It centralizes the conversations received from the different channels connected to the chatbot and instantly displays them in a single page. One of the main features it offers is the possibility to toggle on and off the bot mode temporarly in order to directly reply to users from the platform when needed. It also allows brodcasting messages to a group of users and adding new managers that will be able to take control on some users' bot conversations.
+
+Recast.AI Conversation Manager is a web platform that complements the features offered by Recast.AI (SAP Conversational AI). It centralizes the conversations received from the different channels connected to the chatbot and instantly displays them in a single page. 
+
+One of the main features it offers is the possibility to toggle on and off the bot mode temporarly in order to directly reply to users from the platform when needed. It also allows brodcasting messages to a group of users and adding new managers that will be able to take control on some users' bot conversations.
 
 
 ## Running locally
