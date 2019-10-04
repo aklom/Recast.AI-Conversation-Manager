@@ -3,7 +3,7 @@
 A user-friendly way to manage your recast.ai chatbots :robot: !
 
 <p align="center">
-  <img src="https://media.giphy.com/media/U4402tXqtkOG9gmBpY/giphy.gif" width="400"/> 
+  <img src="https://imgur.com/mqeMUnk.gif" width="700"/> 
 </p>
 
 
